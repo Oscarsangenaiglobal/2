@@ -1,0 +1,17 @@
+{
+  "name": "genaiglobal-site",
+  "version": "1.0.0",
+  "description": "Website for Gen-AI Global",
+  "main": "script.js",
+  "scripts": {
+    "visual-test": "node test/visual-regression.test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "pixelmatch": "^7.1.0",
+    "puppeteer": "^24.15.0"
+  }
+}
