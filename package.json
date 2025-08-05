@@ -1,0 +1,27 @@
+{
+  "name": "genaiglobal-site",
+  "version": "1.0.0",
+  "description": "Website for Gen-AI Global",
+  "main": "script.js",
+  "scripts": {
+    "visual-test": "node test/visual-regression.test.js",
+    "fix-validate": "node scripts/fix-and-validate.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "axe-puppeteer": "^1.1.1",
+    "broken-link-checker": "^0.7.8",
+    "cheerio": "^1.1.2",
+    "cspell": "^8.19.4",
+    "eslint": "^8.57.1",
+    "html-validator": "^6.0.1",
+    "http-server": "^14.1.1",
+    "lighthouse": "^10.4.0",
+    "pa11y": "^9.0.0",
+    "pixelmatch": "^7.1.0",
+    "puppeteer": "^24.15.0",
+    "stylelint": "^15.11.0"
+  }
+}
