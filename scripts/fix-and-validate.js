@@ -13,6 +13,7 @@ const port = 3000;
 const threshold = 0.1; // percent
 const viewport = { width: 1920, height: 1080 };
 
+
 const reportDir = path.join(process.cwd(), 'reports');
 if (!fs.existsSync(reportDir)) fs.mkdirSync(reportDir, { recursive: true });
 
@@ -110,7 +111,7 @@ async function runPa11y(pages, results) {
 }
 
 async function runAxe(pages, results) {
-  const browser = await puppeteer.launch({ headless: 'new' });
+
   for (const page of pages) {
     try {
       const pageObj = await browser.newPage();
@@ -136,7 +137,7 @@ async function runCspell(results) {
 }
 
 async function runDomDiff(pages, results) {
-  const browser = await puppeteer.launch({ headless: 'new' });
+
   for (const page of pages) {
     try {
       const p1 = await browser.newPage();
@@ -155,7 +156,7 @@ async function runDomDiff(pages, results) {
 }
 
 async function runVisualDiff(pages, results) {
-  const browser = await puppeteer.launch({ headless: 'new' });
+
   for (const page of pages) {
     const pLocal = await browser.newPage();
     await pLocal.setViewport(viewport);
