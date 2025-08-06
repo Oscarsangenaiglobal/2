@@ -5,7 +5,8 @@
   "main": "script.js",
   "scripts": {
     "visual-test": "node test/visual-regression.test.js",
-    "fix-validate": "node scripts/fix-and-validate.js"
+    "fix-validate": "node scripts/fix-and-validate.js",
+    "resolve-conflicts": "node scripts/resolve-conflicts.js"
   },
   "author": "",
   "license": "ISC",
