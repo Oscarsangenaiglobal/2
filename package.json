@@ -9,7 +9,7 @@
     "lint:css": "stylelint \"**/*.css\"",
     "lint:js": "eslint \"**/*.js\"",
     "a11y": "pa11y http://localhost:3000",
-    "spell": "cspell \"**/*.{html,js,md}\""
+
   },
   "devDependencies": {
     "axe-puppeteer": "^1.1.1",
