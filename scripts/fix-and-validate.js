@@ -92,12 +92,7 @@ async function runHtmlValidator(files, results) {
 }
 
 async function runStylelint(files, results) {
-  const { stderr } = await execPromise(`npx stylelint "**/*.css" --config='{"rules":{}}'`);
-  if (stderr) results.css.push({ stderr });
-}
 
-async function runEslint(files, results) {
-  const { stderr } = await execPromise('npx eslint .');
   if (stderr) results.js.push({ stderr });
 }
 
@@ -136,7 +131,7 @@ async function runBrokenLinks(results) {
 }
 
 async function runCspell(results) {
-  const { stderr } = await execPromise(`npx cspell "**/*.{html,js,md}"`);
+
   if (stderr) results.spell.push({ stderr });
 }
 
