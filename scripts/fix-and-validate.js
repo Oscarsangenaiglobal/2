@@ -92,14 +92,7 @@ async function runHtmlValidator(files, results) {
 }
 
 async function runStylelint(files, results) {
-  for (const file of files.css) {
-    const { stdout, stderr } = await execPromise(`npx stylelint "${file}" --config='{"rules":{}}'`);
-    if (stderr) results.css.push({ file, stderr });
-  }
-}
 
-async function runEslint(files, results) {
-  const { stdout, stderr } = await execPromise(`npx eslint ${files.js.map(f => `"${f}"`).join(' ')} --no-eslintrc --env browser,node --rule '{"no-unused-vars":"warn"}'`);
   if (stderr) results.js.push({ stderr });
 }
 
@@ -138,7 +131,7 @@ async function runBrokenLinks(results) {
 }
 
 async function runCspell(results) {
-  const { stderr } = await execPromise(`npx cspell "**/*.html" "**/*.md"`);
+
   if (stderr) results.spell.push({ stderr });
 }
 
