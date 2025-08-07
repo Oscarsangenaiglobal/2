@@ -94,7 +94,6 @@ async function runHtmlValidator(files, results) {
 
 async function runStylelint(files, results) {
 
-  if (stderr) results.js.push({ stderr });
 }
 
 async function startServer() {
