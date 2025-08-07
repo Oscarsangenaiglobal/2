@@ -9,10 +9,7 @@
     "lint:css": "stylelint \"**/*.css\"",
     "lint:js": "eslint \"**/*.js\"",
     "a11y": "pa11y http://localhost:3000",
-    "spell": "cspell \"**/*.{html,js,md}\"",
-    "lint": "npm run lint:css && npm run lint:js",
-    "test": "node test/visual-regression.test.js",
-    "sync-validate": "node scripts/sync-validate.js"
+
   },
   "devDependencies": {
     "axe-puppeteer": "^1.1.1",

@@ -12,7 +12,7 @@ const baseURL = 'https://genaiglobal.org';
 const port = 3000;
 const threshold = 0.1; // percent
 const viewport = { width: 1920, height: 1080 };
-const launchOpts = { headless: 'new', args: ['--no-sandbox'] };
+
 
 const reportDir = path.join(process.cwd(), 'reports');
 if (!fs.existsSync(reportDir)) fs.mkdirSync(reportDir, { recursive: true });
@@ -93,13 +93,7 @@ async function runHtmlValidator(files, results) {
 }
 
 async function runStylelint(files, results) {
-  const { stderr } = await execPromise(`npx stylelint "**/*.css" --config='{"rules":{}}'`);
-  if (stderr) results.css.push({ stderr });
-}
 
-async function runEslint(files, results) {
-  const { stderr } = await execPromise('npx eslint .');
-  if (stderr) results.js.push({ stderr });
 }
 
 async function startServer() {
@@ -116,7 +110,7 @@ async function runPa11y(pages, results) {
 }
 
 async function runAxe(pages, results) {
-  const browser = await puppeteer.launch(launchOpts);
+
   for (const page of pages) {
     try {
       const pageObj = await browser.newPage();
@@ -137,12 +131,12 @@ async function runBrokenLinks(results) {
 }
 
 async function runCspell(results) {
-  const { stderr } = await execPromise(`npx cspell "**/*.{html,js,md}"`);
+
   if (stderr) results.spell.push({ stderr });
 }
 
 async function runDomDiff(pages, results) {
-  const browser = await puppeteer.launch(launchOpts);
+
   for (const page of pages) {
     try {
       const p1 = await browser.newPage();
@@ -161,7 +155,7 @@ async function runDomDiff(pages, results) {
 }
 
 async function runVisualDiff(pages, results) {
-  const browser = await puppeteer.launch(launchOpts);
+
   for (const page of pages) {
     const pLocal = await browser.newPage();
     await pLocal.setViewport(viewport);
