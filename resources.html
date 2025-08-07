@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <div w3-include-html="head-section.html"></div>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resources</title>
-    <link rel="stylesheet" href="styles.css">
+    <template data-include="head-section.html"></template>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              maroon: '#750014',
+              grayish: '#8B959E',
+              purple: '#B74EF7',
+              black: '#000000',
+              white: '#FFFFFF'
+            }
+          }
+        }
+      };
+    </script>
     <style>
         /* Style for the dropdown label and select */
         label[for="tagDropdown"] {
@@ -58,12 +74,9 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div w3-include-html="top-panel.html"></div>
-        <header>
-            <img src="logo.png" alt="Gen AI Global Logo" class="logo">
-        </header>
-        <main>
+    <noscript>Your browser has JavaScript disabled; some features may not work.</noscript>
+    <div data-include="top-panel.html"></div>
+    <main>
             <h1>Resources</h1>
             <p>Access AI-related articles, case studies, and learning materials.</p>
 
@@ -75,18 +88,16 @@
 
             <!-- Resources List -->
             <div id="resourcesList">
-                <!-- Dynamic content will be loaded here -->
+                <p>Resources will be listed here soon.</p>
             </div>
         </main>
         <footer>
-            <p>&copy; 2024 Gen AI Global. All rights reserved.</p>
+            <p>&copy; <span id="year">2024</span> Gen AI Global. All rights reserved.</p>
         </footer>
-    </div>
 
-    <script src="https://www.w3schools.com/lib/w3.js"></script>
-    <script>
-        w3.includeHTML();
-    </script>
+    <script src="include.js"></script>
+    <script src="script.js"></script>
+
     <script>
         // Fetch resources data and populate dropdown and resources list
         fetch('resources-data.json')

@@ -7,7 +7,8 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // Load configuration and populate the page
-fetch('new_config.json')    .then((res) => res.json())
+  fetch('config.json')
+    .then((res) => res.json())
     .then((config) => {
       // Site title
       const siteTitleEl = document.getElementById('site-title');
@@ -18,6 +19,7 @@ fetch('new_config.json')    .then((res) => res.json())
       // Navigation links
       const navContainer = document.getElementById('nav-links');
       if (navContainer && Array.isArray(config.nav)) {
+        navContainer.innerHTML = '';
         config.nav.forEach((item) => {
           const li = document.createElement('li');
           const a = document.createElement('a');
@@ -50,6 +52,7 @@ fetch('new_config.json')    .then((res) => res.json())
       // Features section
       const featuresParent = document.querySelector('#features > div');
       if (featuresParent && Array.isArray(config.features)) {
+        featuresParent.innerHTML = '';
         config.features.forEach((feat) => {
           const card = document.createElement('div');
           card.className =
