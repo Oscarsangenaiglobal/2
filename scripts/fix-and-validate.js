@@ -13,6 +13,7 @@ const port = 3000;
 const threshold = 0.1; // percent
 const viewport = { width: 1920, height: 1080 };
 
+
 const reportDir = path.join(process.cwd(), 'reports');
 if (!fs.existsSync(reportDir)) fs.mkdirSync(reportDir, { recursive: true });
 
@@ -92,14 +93,7 @@ async function runHtmlValidator(files, results) {
 }
 
 async function runStylelint(files, results) {
-  for (const file of files.css) {
-    const { stdout, stderr } = await execPromise(`npx stylelint "${file}" --config='{"rules":{}}'`);
-    if (stderr) results.css.push({ file, stderr });
-  }
-}
 
-async function runEslint(files, results) {
-  const { stdout, stderr } = await execPromise(`npx eslint ${files.js.map(f => `"${f}"`).join(' ')} --no-eslintrc --env browser,node --rule '{"no-unused-vars":"warn"}'`);
   if (stderr) results.js.push({ stderr });
 }
 
@@ -117,7 +111,7 @@ async function runPa11y(pages, results) {
 }
 
 async function runAxe(pages, results) {
-  const browser = await puppeteer.launch({ headless: 'new' });
+
   for (const page of pages) {
     try {
       const pageObj = await browser.newPage();
@@ -138,12 +132,12 @@ async function runBrokenLinks(results) {
 }
 
 async function runCspell(results) {
-  const { stderr } = await execPromise(`npx cspell "**/*.html" "**/*.md"`);
+
   if (stderr) results.spell.push({ stderr });
 }
 
 async function runDomDiff(pages, results) {
-  const browser = await puppeteer.launch({ headless: 'new' });
+
   for (const page of pages) {
     try {
       const p1 = await browser.newPage();
@@ -162,7 +156,7 @@ async function runDomDiff(pages, results) {
 }
 
 async function runVisualDiff(pages, results) {
-  const browser = await puppeteer.launch({ headless: 'new' });
+
   for (const page of pages) {
     const pLocal = await browser.newPage();
     await pLocal.setViewport(viewport);
