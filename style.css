@@ -27,3 +27,35 @@ section:nth-of-type(even) {
 html.dark section:nth-of-type(even) {
   background-color: rgba(31, 41, 55, 0.6);
 }
+
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  padding: 0 20px;
+  margin: 0;
+}
+
+.hero-nav li {
+  margin: 0 20px;
+}
+
+.hero-nav a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+}
+
+.nav-logo {
+  height: 40px;
+  margin-right: 20px;
+}

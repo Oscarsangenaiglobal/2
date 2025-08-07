@@ -7,12 +7,10 @@
       "text": "Get Involved",
       "url": "get-involved.html"
     }
-  },      "url": "get-involved.html"
-    }
   },
   "mission": {
     "title": "Our Mission",
-    "text": "Democratize AI knowledge across industries to foster collaboration, accelerate innovation, and drive cross‑sector growth."
+    "text": "Democratize AI knowledge across industries to foster collaboration, accelerate innovation, and drive cross-sector growth."
   },
   "features": [
     {
@@ -30,7 +28,7 @@
   ],
   "nav": [
     { "name": "Home", "url": "index.html" },
-    { "name": "About Us", "url": "about.html" },
+    { "name": "About Us", "url": "about-us.html" },
     { "name": "Community", "url": "community.html" },
     { "name": "Events", "url": "events.html" },
     { "name": "Resources", "url": "resources.html" },
